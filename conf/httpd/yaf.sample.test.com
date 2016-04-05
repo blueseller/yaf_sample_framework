@@ -3,9 +3,9 @@ server {
     server_name lyaf.sample.test.com; 
     
     index index.php;
-    root /home/basename/devspace/bmg_cms/;
-    access_log  /home/basename/devspace/bmg_cms/logs/cms-access.log combinedio;
-    error_log  /home/basename/devspace/bmg_cms/logs/cms-error.log;
+    root /tmp/bmg_cms/;
+    access_log  /tmp/logs/cms-access.log combinedio;
+    error_log  /tmp/logs/cms-error.log;
     
     if ($request_uri ~ " ") {
             return 444;

@@ -11,7 +11,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
 
 	/**
 	 * @return [type]
-	 * 做浏览器检查，IE不安全不建议使用
+	 * 做浏览器检查，IE6不安全不建议使用
 	 */
 	public function _initWebkit()
 	{
@@ -22,20 +22,31 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
 
     public function _initConfig() 
     {
+        Yaf_Dispatcher::getInstance()->autoRender(FALSE);
+        // 关闭自动加载模板
+        //把配置保存起来
+        $arrConfig = Yaf_Application::app()->getConfig();
+        Yaf_Registry::set('config', $arrConfig);
+    }
 
-        Yaf_Dispatcher::getInstance()->autoRender(FALSE);  // 关闭自动加载模板
-		//把配置保存起来
-		$arrConfig = Yaf_Application::app()->getConfig();
-		Yaf_Registry::set('config', $arrConfig);
-		
-	}
+    public function _initErrors()
+    {
+        if (Yaf_Registry::get('config')->application->showErrors) {
+            ini_set('display_errors',"On");
+            ini_set('error_reporting',E_ALL);
+        } else {
+            error_reporting(0);
+            ini_set('display_errors','Off');
+        }
+    }
 
-	//在这里注册自己的路由协议,默认使用简单路由
-	public function _initRoute(Yaf_Dispatcher $dispatcher) 
-	{	
-		$router = $dispatcher->getRouter();
-		$route = new Yaf_Route_Simple("rm", "ro", "ra");
-		$router->addRoute("myroute", $route);
-	}
+
+	//在这里注册自己的路由协议,默认使用简单路由 
+	//public function _initRoute(Yaf_Dispatcher $dispatcher) 
+	//{	
+	//	$router = $dispatcher->getRouter();
+	//	$route = new Yaf_Route_Simple("rm", "ro", "ra");
+	//	$router->addRoute("myroute", $route);
+	//}
 
 }
