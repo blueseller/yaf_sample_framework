@@ -1,7 +1,7 @@
 #########################################################################
 # File Name: news_to_redis.sh
 # Author: liukai
-# mail: liukai-ps@360.cn
+# mail: liukai-ps
 # Created Time: Wed 08 Jul 2015 05:50:32 PM CST
 #########################################################################
 #!/bin/bash

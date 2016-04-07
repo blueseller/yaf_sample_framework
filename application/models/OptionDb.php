@@ -2,7 +2,7 @@
 /**************************************************************************
  File Name: Optiondb.php
  Author: liukai
- mail: liukai-ps@360.cn
+ mail: liukai-ps
  Created Time: Tue 05 Apr 2016 05:59:56 PM CST
  test url: https://github.com/blueseller/fluentpdo/tree/master/tests
 **************************************************************************/
